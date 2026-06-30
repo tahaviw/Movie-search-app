@@ -1,10 +1,13 @@
 import {getMovies} from './api.js';
 import { renderCards } from './ui.js';
 
-export async function test() {
-    const result = await getMovies("batman");//input
+const searchBtn = document.querySelector("#searchBtn")
+const searchInput = document.querySelector("#searchInput")
+
+export async function searchHandler() {
+    const result = await getMovies(searchInput.value);//input
     const movies = result.Search;
     return renderCards(movies);
 }
 
-test()
+searchBtn.addEventListener("click", searchHandler)

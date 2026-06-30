@@ -1,0 +1,165 @@
+/* 1. Global/Variables */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --accent-glow: rgba(255, 255, 255, 0.2);
+    --radius-spatial: 12px;
+    --spacing-small: 4px;
+    --spacing-medium: 8px;
+    --spacing-large: 16px;
+}
+
+/* 2. Base/Reset */
+body {
+    margin: 0;
+    /* Updated to Montserrat globally */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    
+    background: linear-gradient(135deg, #000240, #010f91); /* Green gradient */
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: var(--spacing-large);
+}
+
+/* Added to ensure inputs and buttons inherit Montserrat */
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+h1 {
+    margin: var(--spacing-large);
+    font-size: 3rem;
+    margin-left: 30px;
+    color: #229fff;
+}
+
+/* 3. Layout Containers */
+.search-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-spatial);
+    padding: var(--spacing-large);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+#searchInput {
+    padding: var(--spacing-medium);
+    border: none;
+    border-radius: var(--radius-spatial);
+    margin-bottom: var(--spacing-medium);
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    width: 300px;
+}
+
+#searchInput::placeholder {
+    color: var(--text-secondary);
+}
+
+#searchBtn {
+    padding: var(--spacing-medium) var(--spacing-large);
+    border: none;
+    border-radius: var(--radius-spatial);
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#searchBtn:hover {
+    transform: translateY(-6px) scale(1.02) translateZ(0);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+#searchBtn:active {
+    transform: scale(0.98);
+}
+
+#results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--spacing-large);
+    padding: var(--spacing-large);
+    width: 100%;
+    max-width: 1200px;
+    overflow-y: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-spatial);
+    padding: var(--spacing-large);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02) translateZ(0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    width: 100%;
+    border-radius: var(--radius-spatial);
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.card h2 {
+    margin: var(--spacing-small) 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* 5. Loading/Error Feedback */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.error {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-spatial);
+    padding: var(--spacing-large);
+    color: var(--text-primary);
+    text-align: center;
+}
