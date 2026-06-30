@@ -12,6 +12,5 @@ async function getMovies(title) {
         console.error(`Network Error: ${error}`)
     }
 }
-getMovies()
 
 export { getMovies }
