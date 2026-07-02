@@ -207,3 +207,43 @@ footer h3 {
     color: var(--text-primary);
     text-align: center;
 }
+
+.status-msg {
+    position: fixed;
+    bottom: 90px; /* Positions it perfectly right above your fixed footer */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999; /* Sits securely on top of all elements */
+    
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+    
+    /* Soft red glassmorphism theme for errors */
+    background: rgba(239, 68, 68, 0.15); 
+    backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-spatial);
+    
+    color: #ff8a8a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: var(--spacing-medium) var(--spacing-large);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+    margin-bottom: 150px;
+    
+    /* Animation for smooth slide-up entrance */
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide up entry effect */
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 30px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}

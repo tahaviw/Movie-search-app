@@ -10,6 +10,7 @@ async function getMovies(title) {
         return data
     }catch (error) {
         console.error(`Network Error: ${error}`)
+        throw error
     }
 }
 
