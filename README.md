@@ -18,7 +18,11 @@ A lightweight, responsive movie search application that queries the OMDb API in 
 - CSS3
 - JavaScript (ES6 Modules)
 - Vite
+---
 
+## You can view the live demo of the project here: https://movie-search-app-tahaviw.netlify.app/
+
+---
 ## Installation & Setup
 
 Clone the repository and install dependencies:
